@@ -1,0 +1,46 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch WebAppOne",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/webAppOne/webAppOne.csproj",
+      "launchSettingsProfile": "http",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "http://localhost:5001"
+      },
+      "launchBrowser": {
+        "enabled": true,
+        "args": "http://localhost:5001"
+      }
+    },
+    {
+      "name": "Launch WebApiTwo",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/WebApiTwo/WebApiTwo.csproj",
+      "launchSettingsProfile": "http",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "http://localhost:5002"
+      },
+      "launchBrowser": {
+        "enabled": true,
+        "args": "http://localhost:5002/scalar/v1"
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Launch My Projects",
+      "configurations": [
+        "Launch WebAppOne",
+        "Launch WebApiTwo"
+      ],
+      "stopAll": true,
+      "preLaunchTask": "build-all"
+    }
+  ]
+}

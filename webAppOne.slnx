@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="WebApiTwo/WebApiTwo.csproj" />
+  <Project Path="webAppOne/webAppOne.csproj" />
+</Solution>
