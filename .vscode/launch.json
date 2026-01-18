@@ -5,7 +5,7 @@
       "name": "Launch WebApp",
       "type": "dotnet",
       "request": "launch",
-      "projectPath": "${workspaceFolder}/src\\WebApp/webApp.csproj",
+      "projectPath": "${workspaceFolder}/src/WebApp/webApp.csproj",
       "launchSettingsProfile": "http",
       "env": {
         "ASPNETCORE_ENVIRONMENT": "Development",
@@ -20,7 +20,7 @@
       "name": "Launch WebApi",
       "type": "dotnet",
       "request": "launch",
-      "projectPath": "${workspaceFolder}/strc\\WebApi/WebApi.csproj",
+      "projectPath": "${workspaceFolder}/src/WebApi/WebApi.csproj",
       "launchSettingsProfile": "http",
       "env": {
         "ASPNETCORE_ENVIRONMENT": "Development",
@@ -35,7 +35,7 @@
       "name": "Launch ReverseProxy",
       "type": "dotnet",
       "request": "launch",
-      "projectPath": "${workspaceFolder}/src\\RevereseProxy/RevereseProxy.csproj",
+      "projectPath": "${workspaceFolder}/src/RevereseProxy/RevereseProxy.csproj",
       "launchSettingsProfile": "http",
       "env": {
         "ASPNETCORE_ENVIRONMENT": "Development",

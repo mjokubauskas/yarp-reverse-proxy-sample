@@ -7,7 +7,7 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/src\\WebApp/webApp.csproj",
+        "${workspaceFolder}/src/WebApp/webApp.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -19,7 +19,7 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/strc\\WebApi/WebApi.csproj",
+        "${workspaceFolder}/src/WebApi/WebApi.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -31,7 +31,7 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/src\\RevereseProxy/RevereseProxy.csproj",
+        "${workspaceFolder}/src/RevereseProxy/RevereseProxy.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],

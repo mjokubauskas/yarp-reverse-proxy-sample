@@ -13,7 +13,7 @@ This project demonstrates a YARP (Yet Another Reverse Proxy) setup with a Blazor
                 │                         │
     ┌───────────▼──────────┐   ┌─────────▼──────────┐
     │  Blazor WebAssembly  │   │   Web API          │
-    │  webAppOne           │   │   WebApiTwo        │
+    │  WebApp              │   │   WebApi           │
     │  Port 5001           │   │   Port 5002        │
     │  webapp.localhost    │   │   api.localhost    │
     └──────────────────────┘   └────────────────────┘
@@ -22,20 +22,20 @@ This project demonstrates a YARP (Yet Another Reverse Proxy) setup with a Blazor
 ## Projects
 
 ### 1. **WebApp** - Blazor WebAssembly App
-- **Path**: `src\WebApp/`
+- **Path**: `src/WebApp/`
 - **Port**: 5001
 - **Proxy Route**: http://webapp.localhost
 - Blazor WASM application for the frontend
 
 ### 2. **WebApi** - ASP.NET Core Web API
-- **Path**: `strc\WebApi/`
+- **Path**: `src/WebApi/`
 - **Port**: 5002
 - **Proxy Route**: http://api.localhost
 - REST API with city data
 - Includes Scalar API documentation
 
 ### 3. **ReverseProxy** - YARP Reverse Proxy
-- **Path**: `src\RevereseProxy/`
+- **Path**: `src/RevereseProxy/`
 - **Port**: 80
 - Routes traffic based on hostnames:
   - `webapp.localhost` → `localhost:5001`
@@ -55,23 +55,23 @@ Open **three separate terminals**:
 
 **Terminal 1 - Start Blazor App:**
 ```bash
-cd "src\WebApp"
+cd "src/WebApp"
 dotnet run --urls http://localhost:5001
 ```
 
 **Terminal 2 - Start Web API:**
 ```bash
-cd "strc\WebApi"
+cd "src/WebApi"
 dotnet run --urls http://localhost:5002
 ```
 
 **Terminal 3 - Start Proxy (requires sudo for port 80):**
 ```bash
-cd "src\RevereseProxy"
+cd "src/RevereseProxy"
 sudo dotnet run
 ```
 
-> **Note**: If you don't want to use sudo, change the proxy port in `src\RevereseProxy/Properties/launchSettings.json` to `5000` or another port above 1024.
+> **Note**: If you don't want to use sudo, change the proxy port in `src/RevereseProxy/Properties/launchSettings.json` to `5000` or another port above 1024.
 
 #### Option 2: Using VS Code Launch Configuration
 
@@ -143,7 +143,7 @@ Returns a list of European cities with population data.
 
 ## Configuration Files
 
-### YARP Configuration (`src\RevereseProxy/appsettings.json`)
+### YARP Configuration (`src/RevereseProxy/appsettings.json`)
 
 ```json
 {
