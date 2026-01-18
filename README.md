@@ -21,18 +21,21 @@ This project demonstrates a YARP (Yet Another Reverse Proxy) setup with a Blazor
 
 ## Projects
 
-### 1. **webAppOne** - Blazor WebAssembly App
+### 1. **WebApp** - Blazor WebAssembly App
+- **Path**: `src\WebApp/`
 - **Port**: 5001
 - **Proxy Route**: http://webapp.localhost
 - Blazor WASM application for the frontend
 
-### 2. **WebApiTwo** - ASP.NET Core Web API
+### 2. **WebApi** - ASP.NET Core Web API
+- **Path**: `strc\WebApi/`
 - **Port**: 5002
 - **Proxy Route**: http://api.localhost
 - REST API with city data
 - Includes Scalar API documentation
 
-### 3. **Proxy** - YARP Reverse Proxy
+### 3. **ReverseProxy** - YARP Reverse Proxy
+- **Path**: `src\RevereseProxy/`
 - **Port**: 80
 - Routes traffic based on hostnames:
   - `webapp.localhost` → `localhost:5001`
@@ -52,37 +55,31 @@ Open **three separate terminals**:
 
 **Terminal 1 - Start Blazor App:**
 ```bash
-cd webAppOne
+cd "src\WebApp"
 dotnet run --urls http://localhost:5001
 ```
 
 **Terminal 2 - Start Web API:**
 ```bash
-cd WebApiTwo
+cd "strc\WebApi"
 dotnet run --urls http://localhost:5002
 ```
 
 **Terminal 3 - Start Proxy (requires sudo for port 80):**
 ```bash
-cd Proxy
+cd "src\RevereseProxy"
 sudo dotnet run
 ```
 
-> **Note**: If you don't want to use sudo, change the proxy port in `Proxy/Properties/launchSettings.json` to `5000` or another port above 1024.
+> **Note**: If you don't want to use sudo, change the proxy port in `src\RevereseProxy/Properties/launchSettings.json` to `5000` or another port above 1024.
 
 #### Option 2: Using VS Code Launch Configuration
 
 1. Press **F5** or go to **Run and Debug** (Cmd+Shift+D)
-2. Select **"Launch My Projects"** from the dropdown
+2. Select **"Launch All Projects"** from the dropdown
 3. Click the green play button
 
-This will build and start both webAppOne and WebApiTwo automatically.
-
-You'll still need to start the Proxy manually in a terminal:
-```bash
-cd Proxy
-sudo dotnet run
-```
+This will build and start WebApp, WebApi, and ReverseProxy automatically.
 
 ## Testing
 
@@ -146,7 +143,7 @@ Returns a list of European cities with population data.
 
 ## Configuration Files
 
-### YARP Configuration (`Proxy/appsettings.json`)
+### YARP Configuration (`src\RevereseProxy/appsettings.json`)
 
 ```json
 {
@@ -194,7 +191,7 @@ If you get permission denied on port 80:
 sudo dotnet run
 
 # Option 2: Change to a higher port (e.g., 5000)
-# Edit Proxy/Properties/launchSettings.json and change port to 5000
+# Edit src\RevereseProxy/Properties/launchSettings.json and change port to 5000
 # Then access via http://api.localhost:5000 and http://webapp.localhost:5000
 ```
 
@@ -223,7 +220,7 @@ Modern browsers should resolve `*.localhost` automatically. If not:
 
 ### Building All Projects
 ```bash
-dotnet build webAppOne.slnx
+dotnet build yarp-reverse-proxy-sample.slnx
 ```
 
 ### Restore Packages
@@ -233,8 +230,9 @@ dotnet restore
 
 ### VS Code Tasks
 Available tasks (Ctrl+Shift+P → "Tasks: Run Task"):
-- `build-webAppOne` - Build Blazor app
-- `build-WebApiTwo` - Build API
+- `build-WebApp` - Build Blazor app
+- `build-WebApi` - Build API
+- `build-ReverseProxy` - Build Proxy
 - `build-all` - Build all projects
 
 ## Tech Stack

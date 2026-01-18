@@ -2,10 +2,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch WebAppOne",
+      "name": "Launch WebApp",
       "type": "dotnet",
       "request": "launch",
-      "projectPath": "${workspaceFolder}/webAppOne/webAppOne.csproj",
+      "projectPath": "${workspaceFolder}/src\\WebApp/webApp.csproj",
       "launchSettingsProfile": "http",
       "env": {
         "ASPNETCORE_ENVIRONMENT": "Development",
@@ -17,10 +17,10 @@
       }
     },
     {
-      "name": "Launch WebApiTwo",
+      "name": "Launch WebApi",
       "type": "dotnet",
       "request": "launch",
-      "projectPath": "${workspaceFolder}/WebApiTwo/WebApiTwo.csproj",
+      "projectPath": "${workspaceFolder}/strc\\WebApi/WebApi.csproj",
       "launchSettingsProfile": "http",
       "env": {
         "ASPNETCORE_ENVIRONMENT": "Development",
@@ -30,14 +30,29 @@
         "enabled": true,
         "args": "http://localhost:5002/scalar/v1"
       }
+    },
+    {
+      "name": "Launch ReverseProxy",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/src\\RevereseProxy/RevereseProxy.csproj",
+      "launchSettingsProfile": "http",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "http://localhost:80"
+      },
+      "launchBrowser": {
+        "enabled": false
+      }
     }
   ],
   "compounds": [
     {
-      "name": "Launch My Projects",
+      "name": "Launch All Projects",
       "configurations": [
-        "Launch WebAppOne",
-        "Launch WebApiTwo"
+        "Launch WebApp",
+        "Launch WebApi",
+        "Launch ReverseProxy"
       ],
       "stopAll": true,
       "preLaunchTask": "build-all"

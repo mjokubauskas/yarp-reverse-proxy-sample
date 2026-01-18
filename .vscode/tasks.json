@@ -2,24 +2,36 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build-webAppOne",
+      "label": "build-WebApp",
       "command": "dotnet",
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/webAppOne/webAppOne.csproj",
+        "${workspaceFolder}/src\\WebApp/webApp.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
       "problemMatcher": "$msCompile"
     },
     {
-      "label": "build-WebApiTwo",
+      "label": "build-WebApi",
       "command": "dotnet",
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/WebApiTwo/WebApiTwo.csproj",
+        "${workspaceFolder}/strc\\WebApi/WebApi.csproj",
+        "/property:GenerateFullPaths=true",
+        "/consoleloggerparameters:NoSummary"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "build-ReverseProxy",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/src\\RevereseProxy/RevereseProxy.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -28,8 +40,9 @@
     {
       "label": "build-all",
       "dependsOn": [
-        "build-webAppOne",
-        "build-WebApiTwo"
+        "build-WebApp",
+        "build-WebApi",
+        "build-ReverseProxy"
       ],
       "problemMatcher": []
     }

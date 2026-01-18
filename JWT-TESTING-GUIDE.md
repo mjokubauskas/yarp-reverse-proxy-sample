@@ -45,19 +45,19 @@ This guide demonstrates how to test the JWT authentication and authorization fea
 
 **Terminal 1 - Web API:**
 ```bash
-cd WebApiTwo
+cd "strc\WebApi"
 dotnet run --urls http://localhost:5002
 ```
 
 **Terminal 2 - Blazor App:**
 ```bash
-cd webAppOne
+cd "src\WebApp"
 dotnet run --urls http://localhost:5001
 ```
 
 **Terminal 3 - Proxy (requires sudo for port 80):**
 ```bash
-cd Proxy
+cd "src\RevereseProxy"
 sudo dotnet run
 ```
 
@@ -185,9 +185,9 @@ curl -v -H "Authorization: Bearer $WRONG_SCOPE_TOKEN" http://api.localhost/api/d
 
 ### Step 8: Test Token Forwarding
 
-Check if headers are forwarded to downstream service. You'll need to modify WebApiTwo to log headers:
+Check if headers are forwarded to downstream service. You'll need to modify WebApi to log headers:
 
-**In WebApiTwo/Program.cs, add before `app.MapGet("/Cities")`:**
+**In strc\WebApi/Program.cs, add before `app.MapGet("/Cities")`:**
 ```csharp
 app.Use(async (context, next) =>
 {
@@ -203,7 +203,7 @@ app.Use(async (context, next) =>
 curl -H "Authorization: Bearer $USER_TOKEN" http://api.localhost/user/profile
 ```
 
-**Check WebApiTwo logs** - you should see:
+**Check WebApi logs** - you should see:
 - `Authorization: Bearer eyJh...`
 - `X-User-Id: test-user-123`
 - `X-User-Roles: User`
